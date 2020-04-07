@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'it.assist.jrecordbind:jrecordbind:2.3.4' // Random choice
+    // implementation 'com.blackbear.flatworm:3.0.2'
+    implementation 'net.sf.flatpack:flatpack:4.0.4'
+    implementation group: 'junit', name: 'junit', version: '4.12'
+}
