@@ -36,8 +36,9 @@ public class Hello {
         String data = "PEOPLE-FixedLength.txt";
         String baseDir = "src/main/resources/";
         String[] colNames = null;
-        try (BuffReaderFixedParser pzparse = (BuffReaderFixedParser) BuffReaderParseFactory.getInstance()
-                .newFixedLengthParser(new FileReader(baseDir + mapping), new FileReader(baseDir + data))) {
+        LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(baseDir+mapping));
+        BuffReaderFixedParser pzparse = (BuffReaderFixedParser) BuffReaderParseFactory.getInstance()
+                .newFixedLengthParser(lineNumberReader, new FileReader(baseDir + data));
 
             final DataSet ds = pzparse.parse();
             colNames = ds.getColumns();
@@ -49,7 +50,6 @@ public class Hello {
 
                 System.out.println("===========================================================================");
             }
-        }
     }
 
     private void run() {
