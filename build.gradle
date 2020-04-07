@@ -1,5 +1,13 @@
 plugins {
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
     id 'java'
+}
+
+version = '0.1'
+jar {
+    manifest {
+        attributes 'Main-Class': 'demo.Hello'
+    }
 }
 
 group 'org.example'
@@ -15,5 +23,9 @@ dependencies {
     implementation 'it.assist.jrecordbind:jrecordbind:2.3.4' // Random choice
     // implementation 'com.blackbear.flatworm:3.0.2'
     implementation 'net.sf.flatpack:flatpack:4.0.4'
+    implementation 'org.slf4j:slf4j-simple:1.7.30'
     implementation group: 'junit', name: 'junit', version: '4.12'
 }
+
+
+

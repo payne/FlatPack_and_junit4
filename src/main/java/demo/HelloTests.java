@@ -14,5 +14,6 @@ public class HelloTests {
         int total = a + b;
         // then the total is four
         Assert.assertEquals(4,total);
+        Assert.assertEquals(5,total);
     }
 }
