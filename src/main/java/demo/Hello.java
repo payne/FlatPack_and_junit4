@@ -52,7 +52,8 @@ public class Hello {
 
             while (ds.next()) {
                 Map<String, String> line = new HashMap<>();
-                line.put(LINE_NUMBER, lineNumberReaderData.getLineNumber()+"");
+                // line.put(LINE_NUMBER, lineNumberReaderData.getLineNumber()+"");
+                line.put(LINE_NUMBER, ds.getIndex()+"");
                 for (final String colName : colNames) {
                     String colValue = ds.getString(colName);
                     line.put(colName, colValue);

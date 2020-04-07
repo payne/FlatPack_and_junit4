@@ -50,7 +50,7 @@ COLUMN NAME: CITY VALUE: BEDROCK
 COLUMN NAME: STATE VALUE: AZ
 COLUMN NAME: ZIP VALUE: 12345
 ===========================================================================
-First name 'JIMMY' has a 'Y' in it.  This is forbidden.  Line number 4
+First name 'JIMMY' has a 'Y' in it.  This is forbidden.  Line number 2
 junit.framework.AssertionFailedError: First name 'JIMMY' has a 'Y' in it.  This is forbidden.  Line number 4
         at junit.framework.Assert.fail(Assert.java:57)
         at junit.framework.Assert.assertTrue(Assert.java:22)
