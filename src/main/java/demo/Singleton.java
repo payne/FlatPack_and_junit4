@@ -9,7 +9,7 @@ public class Singleton {
 
     private List<Map<String,String>> lines;
 
-    public Singleton getSingleton() {
+    public static Singleton getSingleton() {
         if (null==singleton) singleton = new Singleton();
         return singleton;
     }

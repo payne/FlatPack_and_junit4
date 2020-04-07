@@ -9,19 +9,52 @@ https://stackoverflow.com/questions/2543912/how-do-i-run-junit-tests-from-inside
    1. Note you can put that jar any where and call it from the command line.  Output looks like:
 
 ```
+Matts-Mac-mini:Dave mpayne$ gradle shadowJar
+
+> Task :compileJava
+Note: /Users/mattpayne/CS/Dave/src/main/java/demo/HelloTests.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+BUILD SUCCESSFUL in 2s
+3 actionable tasks: 2 executed, 1 up-to-date
 Matts-Mac-mini:Dave mpayne$ java -jar build/libs/ReportChecker-1.0-SNAPSHOT-all.jar command line arguments
 Hello
         args[0]=command
         args[1]=line
         args[2]=arguments
-expected:<5> but was:<4>
-junit.framework.AssertionFailedError: expected:<5> but was:<4>
+COLUMN NAME: FIRSTNAME VALUE: JOHN
+COLUMN NAME: LASTNAME VALUE: DOE
+COLUMN NAME: ADDRESS VALUE: 1234 CIRCLE CT
+COLUMN NAME: CITY VALUE: ELYRIA
+COLUMN NAME: STATE VALUE: OH
+COLUMN NAME: ZIP VALUE: 44035
+===========================================================================
+COLUMN NAME: FIRSTNAME VALUE: JIMMY
+COLUMN NAME: LASTNAME VALUE: SMITH
+COLUMN NAME: ADDRESS VALUE: 180 SOME ST
+COLUMN NAME: CITY VALUE: AVON
+COLUMN NAME: STATE VALUE: OH
+COLUMN NAME: ZIP VALUE: 44011
+===========================================================================
+COLUMN NAME: FIRSTNAME VALUE: JANE
+COLUMN NAME: LASTNAME VALUE: DOE
+COLUMN NAME: ADDRESS VALUE: 111 MILKY WY
+COLUMN NAME: CITY VALUE: AMHERST
+COLUMN NAME: STATE VALUE: OH
+COLUMN NAME: ZIP VALUE: 44001
+===========================================================================
+COLUMN NAME: FIRSTNAME VALUE: FRED
+COLUMN NAME: LASTNAME VALUE: FLINTSTONE
+COLUMN NAME: ADDRESS VALUE: 123 ROCKY WY
+COLUMN NAME: CITY VALUE: BEDROCK
+COLUMN NAME: STATE VALUE: AZ
+COLUMN NAME: ZIP VALUE: 12345
+===========================================================================
+First name 'JIMMY' has a 'Y' in it.  This is forbidden.  Line number 4
+junit.framework.AssertionFailedError: First name 'JIMMY' has a 'Y' in it.  This is forbidden.  Line number 4
         at junit.framework.Assert.fail(Assert.java:57)
-        at junit.framework.Assert.failNotEquals(Assert.java:329)
-        at junit.framework.Assert.assertEquals(Assert.java:78)
-        at junit.framework.Assert.assertEquals(Assert.java:234)
-        at junit.framework.Assert.assertEquals(Assert.java:241)
-        at demo.HelloTests.whenThisThenThat(HelloTests.java:17)
+        at junit.framework.Assert.assertTrue(Assert.java:22)
+        at demo.HelloTests.firstNamesShallNotHaveLetterY(HelloTests.java:31)
         at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
         at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
         at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -51,14 +84,19 @@ junit.framework.AssertionFailedError: expected:<5> but was:<4>
         at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
         at org.junit.runner.JUnitCore.run(JUnitCore.java:105)
         at org.junit.runner.JUnitCore.run(JUnitCore.java:94)
-        at demo.Hello.run(Hello.java:28)
-        at demo.Hello.main(Hello.java:19)
+        at demo.Hello.run(Hello.java:69)
+        at demo.Hello.main(Hello.java:32)
 
 
 
 *************
 
 
+Matts-Mac-mini:Dave mpayne$ nl src/main/resources/PEOPLE-FixedLength.txt 
+     1  JOHN                               DOE                                1234 CIRCLE CT                                                                                      ELYRIA                                                                                              OH44035
+     2  JIMMY                              SMITH                              180 SOME ST                                                                                         AVON                                                                                                OH44011
+     3  JANE                               DOE                                111 MILKY WY                                                                                        AMHERST                                                                                             OH44001
+     4  FRED                               FLINTSTONE                         123 ROCKY WY                                                                                        BEDROCK                                                                                             AZ12345
 Matts-Mac-mini:Dave mpayne$ 
 
 ```   
